@@ -4,7 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-      - name: setup
+      - name: Setup variables
+        id: vars
         run: |
           if echo ${{ github.ref }} | grep -q "-"; then PRERELEASE=true; else PRERELEASE=false; fi
           echo "::set-output name=prerelease::${PRERELEASE}"
